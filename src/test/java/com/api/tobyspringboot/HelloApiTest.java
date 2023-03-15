@@ -7,14 +7,32 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author junyeong.jo .
  * @since 2023-03-15
  */
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@UnitTest
+@interface FastUnitTest {}
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
+@Test
+@interface UnitTest {
+
+}
+
 public class HelloApiTest {
-    @Test
+    @UnitTest
     void helloApi() {
         // http localhost:8080/hello?name=Spring
         TestRestTemplate rest = new TestRestTemplate();
@@ -29,7 +47,7 @@ public class HelloApiTest {
 
     }
 
-    @Test
+    @FastUnitTest
     void failsHelloApi() {
         TestRestTemplate rest = new TestRestTemplate();
 
