@@ -1,5 +1,6 @@
 package com.api.tobyspringboot;
 
+import com.api.tobyspringboot.helloboot.HelloController;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
