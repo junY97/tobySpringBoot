@@ -1,7 +1,5 @@
 package com.api.tobyspringboot.config;
 
-import com.api.tobyspringboot.config.autoconfig.DispatcherServletConfig;
-import com.api.tobyspringboot.config.autoconfig.TomcatWebServerConfig;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;
@@ -15,6 +13,6 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Import({DispatcherServletConfig.class, TomcatWebServerConfig.class})
+@Import(MyAutoConfigImportSelector.class)
 public @interface EnableMyAutoConfiguration {
 }
