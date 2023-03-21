@@ -21,3 +21,4 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+ext['jakarta-servlet.version'] = '5.0.0'
