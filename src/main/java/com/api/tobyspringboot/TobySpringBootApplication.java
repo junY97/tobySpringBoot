@@ -1,4 +1,4 @@
-package com.api.tobyspringboot.helloboot;
+package com.api.tobyspringboot;
 
 import com.api.tobyspringboot.config.MySpringBootApplication;
 import org.springframework.boot.SpringApplication;

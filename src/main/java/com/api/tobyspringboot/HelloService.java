@@ -1,4 +1,4 @@
-package com.api.tobyspringboot.helloboot;
+package com.api.tobyspringboot;
 
 /**
  * @author junyeong.jo .
