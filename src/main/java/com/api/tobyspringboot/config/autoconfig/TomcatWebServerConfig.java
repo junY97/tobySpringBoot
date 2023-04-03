@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
 
 /**
  * @author junyeong.jo .
@@ -16,7 +17,9 @@ import org.springframework.context.annotation.Bean;
 public class TomcatWebServerConfig {
     @Bean("TomcatWebserverConfig")
     @ConditionalOnMissingBean
-    public ServletWebServerFactory servletWebServerFactory() {
-        return new TomcatServletWebServerFactory();
+    public ServletWebServerFactory servletWebServerFactory(Environment env) {
+        TomcatServletWebServerFactory webServerFactory = new TomcatServletWebServerFactory();
+        webServerFactory.setContextPath(env.getProperty("ContextPath"));
+        return webServerFactory;
     }
 }
